@@ -34,16 +34,16 @@ for files in file_list:
         parsed = unpack.from_file(files)
         #   parsed, stores the contents of the .pdf file as a string
         parsed = parsed['content']
-        #   strips the whitespace to the left & to the right of the parsed string
-        parsed = parsed.rstrip().lstrip()
+        #   strips the whitespace from the parsed string
+        parsed = parsed.strip()
         #   splits the string at the return char from the format: 'name\n title'
         name, title = parsed.split('\n')
-        #   strips the whitespace to the left & to the right of the name
-        name = name.lstrip().rstrip()
-        #   strips the whitespace to the left & to the right of the title
-        title = title.lstrip().rstrip()
+        #   strips the whitespace from the name
+        name = name.strip()
+        #   strips the whitespace from the title
+        title = title.strip()
         #   formats the output file: 'name TAB title'
-        output_file.write('%s   %s\n' % (name, title))
+        output_file.write('%s\t%s\n' % (name, title))
 
 #   closes the output file
 output_file.close()
