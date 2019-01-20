@@ -2,8 +2,8 @@
 *.json
 *.pyc
 
-/.vscode
-/__pycache__
+.vscode/
+__pycache__/
 build/
 dist/
 
