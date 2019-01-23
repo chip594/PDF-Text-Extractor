@@ -9,3 +9,4 @@ dist/
 Invoice/
 
 *.spec
+*.exe
