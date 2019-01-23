@@ -20,12 +20,13 @@ user_input = pymsgbox.prompt('Enter the desiered name of the output file: (witho
 #   closes the progrm if the user clicks the 'cancel' button
 if user_input == None:
     exit(0)
+    
+#   stores a list a files within the current working directory
+file_list = os.listdir(os.getcwd())
 
 #   creates the output file, name is based on user input
 output_file = open(add_txt_ext(user_input) + '.txt', 'w')
 
-#   stores a list a files within the current working directory
-file_list = os.listdir(os.getcwd())
 #   cycles through every file in the file list
 for files in file_list:
     #   only opens .pdf files
