@@ -47,7 +47,7 @@ def format_text(text):
     name_badge = text.split('\n')
     for element in name_badge:
         badge_queue.append(element.strip())
-    while badge_queue.count('') >= 1:
+    while badge_queue.count(''):
         badge_queue.remove('')
     title = badge_queue.pop()
     name = badge_queue.pop()
