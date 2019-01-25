@@ -7,6 +7,7 @@ from pdfminer.pdfpage import PDFPage
 
 import os, sys, getopt
 import pymsgbox
+from collections import deque
 
 def get_user_input():
     user_input = pymsgbox.prompt('Enter name', default=add_txt_ext(''), title='FBPI .pdf Text Extractor')
@@ -41,7 +42,17 @@ def pdf_to_text(pdf_file, pages=None):
     return text
 
 def format_text(text):
+    badge_queue = []
+
     name_badge = text.split('\n')
+    for element in name_badge:
+        badge_queue.append(element.strip())
+    while badge_queue.count('') >= 1:
+        badge_queue.remove('')
+    title = badge_queue.pop()
+    name = badge_queue.pop()
+
+    name_badge = ('%s\t%s\n' % (name, title))
     return name_badge
 
 def main(): 
@@ -50,17 +61,10 @@ def main():
 
     file_list = os.listdir(os.getcwd())
 
-    name = []
-    title = []
-    badges = []
-
     for files in file_list:
         if files.endswith('.pdf'):
-            name_badge = pdf_to_text(files)
-            name_badge = format_text(name_badge)
-            print(type(name_badge))
-            print(name_badge)
-            #output_file.write(name_badge)
+            name_badge = format_text(pdf_to_text(files))
+            output_file.write(name_badge)
 
     output_file.close()
 
