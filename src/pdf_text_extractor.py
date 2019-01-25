@@ -44,14 +44,13 @@ def get_user_input():
 
 # ensures that the output file will have a name
 def add_txt_ext(user_input):
-    # runs of the prompt box is empty
     if len(user_input) < 1:
         return '_output'
-    # runs if user input is provided
     else:
         return user_input
 
-# takes in a pdf file as a parameter, and returns the contents as a string
+# takes in a pdf file as a parameter 
+#   returns the contents as a string
 def pdf_to_text(pdf_file, pages=None):
     # allows multiple pages to be passed in as a parameter
     if pages:
@@ -59,54 +58,41 @@ def pdf_to_text(pdf_file, pages=None):
     else:
         num_of_pages = set()
 
-    # creates a text stream object
     output = StringIO()
-    # creates a resource manager for the resuse of shared resources
     manager = PDFResourceManager()
 
-    # creates a text converter object
     # parameters require a resource manager and an output text stream
     converter = TextConverter(manager, output, laparams=LAParams())
 
-    # creates an interpreter object
     # parameters require a resource manager and a text converter
     interpreter = PDFPageInterpreter(manager, converter)
 
-    # creates an input file, read in bytes
     input_file = open(pdf_file, 'rb')
-    # cycles through and parses each page
     for page in PDFPage.get_pages(input_file, num_of_pages):
-        # uses the interpreter to read the contents of each page
         interpreter.process_page(page)
-    # closes the input_file
     input_file.close()
-    # closes the converter object
     converter.close()
-    # stores the output of the text stream
+
     text = output.getvalue()
-    # closes the text stream object
     output.close()
 
-    # returns the extracted text as a string
     return text
 
-# takes in a string as a parameter, and returns the string in a specific format
-# format:     name TAB title
+# takes in a string as a parameter
+#   returns the string in a specific format
+#   format:     name TAB title
 def name_tab_title(text):
-    # splits the text string into a list of strings
+    # stores contents of the input text into a list
     name_badge = text.split('\n')
 
-    # creates a stack opject to store the input string
     badges = []
 
-    # strips the whitespace from every element
+    # strip the whitespace from every element
     for element in name_badge:
-        # stores the new elements in the badges list
         badges.append(element.strip())
 
-    # returns true for as long as the badge has a blank line
+    # return true for as long as the badge has a blank line
     while badges.count(''):
-        # removes the blank line
         badges.remove('')
  
     # stores the last string addedsd to the badges stack
@@ -117,13 +103,11 @@ def name_tab_title(text):
     # formats the string as 'name TAB title'
     name_badge = ('%s\t%s\n' % (name, title))
 
-    # returns the formatted string
     return name_badge
 
-# the main starting function
 def main(): 
     # stores the name of the output file
-    user_input = get_user_input()\
+    user_input = get_user_input()
     # creates the output .txt file
     output_file = open(add_txt_ext(user_input) + '.txt', 'w')
 
@@ -135,15 +119,13 @@ def main():
         # will only process .pdf files
         if files.endswith('.pdf'):
             # stores the formated string
-            # pdf_to_text(): will convert the contents of each pdf file to string
-            # name_tab_title(): will provide the desired formatted string
+            #   pdf_to_text(): will convert the contents of each pdf file to string
+            #   name_tab_title(): will provide the desired formatted string
             name_badge = name_tab_title(pdf_to_text(files))
             # writes the formated string to the output .txt file
             output_file.write(name_badge)
 
-    # closes the output file
     output_file.close()
 
-# initilaizes main()
 if __name__ == '__main__':
     main()
