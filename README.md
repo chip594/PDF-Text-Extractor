@@ -10,3 +10,5 @@ PDF Text Extractor is a program that I wrote for a local company. The company re
 
 
  PDF Text Extractor is written in Python 3.7
+
+ Version 2.0: Version 2.0 is the same concept as version 1.0, aside from version 2.0 uses the pdfminer library instead of the tika library. Tika was producing an error when the Apache server didn't spin up fast enough upon startup.
