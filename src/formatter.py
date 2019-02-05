@@ -7,3 +7,9 @@ class TextFormatter(object):
         name_badge = text.split('\n')
 
         badges = []
+
+        # strip the whitepsace from every element
+        for element in name_badge:
+            badges.append(element.strip())
+
+            
