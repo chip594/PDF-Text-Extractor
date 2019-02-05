@@ -22,3 +22,7 @@ class TextFormatter(object):
         # stores the first string added to the badge list as the name
         name = badges.pop()
 
+        # formats the string as 'name TAB title'
+        name_badge = ('%s\t%s\n' % (name, title))
+        
+        return name_badge
