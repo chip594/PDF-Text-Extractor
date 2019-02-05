@@ -23,4 +23,8 @@ def add_txt_ext(user_input):
 
 # main function, runs on program startup
 def main():
-    pass
+    # stores the name of the output file
+    user_input = get_user_input()
+
+    # create the output .txt file
+    output_file = open(add_txt_ext(user_input) + '.txt', 'w')
