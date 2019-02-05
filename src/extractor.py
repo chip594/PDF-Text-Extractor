@@ -28,4 +28,4 @@ class PDFExtractor(object):
         for page in PDFPage.get_pages(input_file, num_of_pages):
             interpreter.process_page(page)
         input_file.close()
-        
+        converter.close()
