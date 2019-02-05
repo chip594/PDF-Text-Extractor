@@ -12,4 +12,7 @@ class TextFormatter(object):
         for element in name_badge:
             badges.append(element.strip())
 
-            
+        # return true from as long as the badge has a blank line
+        while badges.count(''):
+            badges.remove('')
+
