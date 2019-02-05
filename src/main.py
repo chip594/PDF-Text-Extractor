@@ -42,4 +42,6 @@ def main():
     for files in file_list:
         # will only process .pdf files
         if files.endswith('.pdf'):
-            pass
+            # convert contents of each pdf file to a string
+            name_badge = extractor.pdf_to_text(files)
+
