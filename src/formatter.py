@@ -3,4 +3,5 @@
 class TextFormatter(object):
 
     def name_tab_title(self, text):
-        pass
+        # stores contents of the input text into a list
+        name_badge = text.split('\n')
