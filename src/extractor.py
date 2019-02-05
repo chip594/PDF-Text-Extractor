@@ -29,3 +29,6 @@ class PDFExtractor(object):
             interpreter.process_page(page)
         input_file.close()
         converter.close()
+
+        text = output.getvalue()
+        output.close()
