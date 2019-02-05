@@ -37,3 +37,9 @@ def main():
 
     # stores a list of all files in the current directory
     file_list = os.listdir(os.getcwd())
+
+    # interate through all the files in the file list
+    for files in file_list:
+        # will only process .pdf files
+        if files.endswith('.pdf'):
+            pass
