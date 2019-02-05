@@ -44,4 +44,7 @@ def main():
         if files.endswith('.pdf'):
             # convert contents of each pdf file to a string
             name_badge = extractor.pdf_to_text(files)
+            
+            # formats the string to the propper format
+            name_badge = formatter.name_tab_title(name_badge)
 
