@@ -13,3 +13,10 @@ def get_user_input():
     if user_input == None:
         exit(0)
     return user_input
+
+# ensure the output file has a name
+def add_txt_ext(user_input):
+    if len(user_input) < 1:
+        return '_output'
+    else:
+        return user_input
