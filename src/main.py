@@ -20,3 +20,7 @@ def add_txt_ext(user_input):
         return '_output'
     else:
         return user_input
+
+# main function, runs on program startup
+def main():
+    pass
