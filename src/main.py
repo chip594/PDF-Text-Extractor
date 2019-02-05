@@ -48,3 +48,9 @@ def main():
             # formats the string to the propper format
             name_badge = formatter.name_tab_title(name_badge)
 
+            # writes the formatted string to the output file
+            output_file.write(name_badge)
+
+    output_file.close()
+
+
