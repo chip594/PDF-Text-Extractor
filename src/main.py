@@ -28,3 +28,6 @@ def main():
 
     # create the output .txt file
     output_file = open(add_txt_ext(user_input) + '.txt', 'w')
+
+    # stores a list of all files in the current directory
+    file_list = os.listdir(os.getcwd())
