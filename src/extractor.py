@@ -24,5 +24,8 @@ class PDFExtractor(object):
         # parameters require a resource manager and a text converter
         interpreter = PDFPageInterpreter(manager, converter)
 
-        
+        input_file = open(pdf_file, 'rb')
+        for page in PDFPage.get_pages(input_file, num_of_pages):
+            interpreter.process_page(page)
+        input_file.close()
         
