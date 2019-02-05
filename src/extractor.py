@@ -32,3 +32,5 @@ class PDFExtractor(object):
 
         text = output.getvalue()
         output.close()
+
+        return text
