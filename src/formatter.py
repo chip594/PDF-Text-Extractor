@@ -16,8 +16,9 @@ class TextFormatter(object):
         while badges.count(''):
             badges.remove('')
 
-        # stores the last string added to the badge as the title
+        # stores the last string added to the badge list as the title
         title = badges.pop()
 
-        
+        # stores the first string added to the badge list as the name
+        name = badges.pop()
 
