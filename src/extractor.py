@@ -14,5 +14,15 @@ class PDFExtractor(object):
             num_of_pages = set(pages)
         else:
             num_of_pages = set()
+        
+        output = StringIO()
+        manager = PDFResourceManager()
 
+        # parameters require a resource manager and an output text stream
+        converter = TextConverter(manager, output, laparams=LAParams())
+
+        # parameters require a resource manager and a text converter
+        interpreter = PDFPageInterpreter(manager, converter)
+
+        
         
