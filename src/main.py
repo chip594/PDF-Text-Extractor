@@ -1,4 +1,16 @@
-# main.py
+'''
+PDF Text Extractor Main Module
+
+This module will read every .pdf file within a directory. It will 
+use the PDFExtractor to extract its contents to a string. That 
+string will then be passed to TextFormatter where it will be 
+properly formatted to the desired format.
+
+The module will ask the user for a desired output file name, but 
+if one if not provided then a default name will be used.
+
+The .exe file must be within the same directory as the .pdf files.
+'''
 
 import os
 import pymsgbox

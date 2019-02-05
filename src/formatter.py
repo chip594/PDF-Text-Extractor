@@ -1,7 +1,13 @@
-# formatter.py
+'''
+Text Formatter Module
+
+This module will format the string input to match the desired output.
+'''
 
 class TextFormatter(object):
 
+    # takes in a string parameter
+    # returns the string formatted as: 'name TAB title'
     def name_tab_title(self, text):
         # stores contents of the input text into a list
         name_badge = text.split('\n')

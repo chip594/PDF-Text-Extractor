@@ -1,4 +1,9 @@
-# extractor.py
+'''
+PDF Text Extractor Module
+
+This module will extract the text from a .pdf file and return the
+contents as a string. 
+'''
 
 from io import StringIO
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
@@ -9,6 +14,8 @@ import getopt
 
 class PDFExtractor(object):
 
+    # takes in a parameter of a pdf file
+    # returns the contents as a string
     def pdf_to_text(self, pdf_file, pages=None):
         # allows multiple pages to be passed in as a parameter
         if pages:
