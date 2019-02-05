@@ -23,6 +23,12 @@ def add_txt_ext(user_input):
 
 # main function, runs on program startup
 def main():
+    #create an pdf extractor
+    extractor = PDFExtractor()
+
+    # create a text formatter
+    formatter = TextFormatter()
+
     # stores the name of the output file
     user_input = get_user_input()
 
